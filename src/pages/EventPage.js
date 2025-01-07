@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -198,13 +198,23 @@ const eventRules = {
       'Individual participation',
       'Basic knowledge of trading required',
       'Registration fee applicable',
-      'Limited slots available'
+      'Limited slots available',
+      'All participants must adhere to ensure respectful and fair behaviour.',
+      'Only First 20 Teams only will get Opportuinity in the Trader Tournament.'
     ],
     eventRules: [
-      'Virtual trading environment',
+      'The event will start at 11:00 am',
       'Initial virtual capital provided',
-      'Trading duration: 2 hours',
-      'Highest portfolio value wins'
+      'Trading duration: 1 hours',
+      'Highest portfolio value wins', 
+      'Participants will trade within the following markets and constraints:',
+          '1. Commodity Market (Gold - XAU/USD Pair)',
+              'Quantity: 10',
+          '2. Commodity Market (USOil)',
+              'Quantity: 80',
+          '3. Forex Market (EUR/USD Pair)',
+              'Quantity: 25,000',
+      'Participants must use TradingView to perform their analysis and structure their strategies around these specific markets and quantities.'
     ]
   },
   'TRIVIA SHOWDOWN': {
@@ -241,6 +251,15 @@ const EventPage = () => {
   const { eventName } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleBack = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   // Convert URL format back to event name format
   const formattedEventName = eventName
     .split('-')
@@ -253,7 +272,7 @@ const EventPage = () => {
     return (
       <EventContainer>
         <BackButton
-          onClick={() => navigate('/')}
+          onClick={handleBack}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -269,7 +288,7 @@ const EventPage = () => {
   return (
     <EventContainer>
       <BackButton
-        onClick={() => navigate('/')}
+        onClick={handleBack}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

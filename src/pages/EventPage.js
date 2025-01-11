@@ -124,19 +124,21 @@ const BackButton = styled(motion.button)`
   }
 `;
 
-const RegisterButton = styled(motion.button)`
+const RegisterButton = styled(motion.a)`
   display: block;
   margin: 2rem auto;
   padding: 1rem 3rem;
   font-size: 1.2rem;
   font-family: 'Cinzel Decorative', cursive;
   color: #0a0a0a;
+  width: fit-content;
   background: #e2c35d;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 15px rgba(226, 195, 93, 0.3);
+  text-decoration: none;
 
   &:hover {
     transform: translateY(-2px);
@@ -153,53 +155,64 @@ const RegisterButton = styled(motion.button)`
 const eventRules = {
   'BGMI': {
     generalRules: [
-      'Players must be 16 years or older to participate',
-      'All participants must have their own devices',
-      'Use of emulators is strictly prohibited',
-      'Players must be present 30 minutes before the event starts'
+      'Participants must show proof of following all sponsor socials before entry.',
+      'Entry fee of Rs.80 /- per Team.',
+      'Each team must have 4 playing members (1 substitute optional). Only playing members are allowed in the venue.',
+      'Participants must wear their ID cards.',
+      'Teams arriving late will be disqualified.',
+      'No charging points will be provided; participants must bring their own charging equipment.'
     ],
     eventRules: [
-      'Squad matches only (4 players per team)',
-      'Two rounds will be played',
-      'Points system: Kills (1 point each), Victory (15 points)',
-      'Top 3 teams qualify for finals'
+      'No finger sleeves, triggers, or additional gadgets are allowed.',
+      'Hacking or using glitches is strictly prohibited.',
+      'Participants may use any device (Android, iPhone, iPad, etc.).',
+      'Misbehavior with event management or other teams will lead to disqualification.',
+      'Participants may carry power banks and pocket Wi-Fi at their own risk. The college is not responsible for misplaced items.'
     ]
   },
   'CAPTURE THE FLAG': {
     generalRules: [
-      'Individual participation only',
-      'Participants must bring their own laptops',
+      'Participants must show proof of following all sponsor socials before entry.',
+      'Individual or team of 2 or 3 participation allowed',
+      'Participants must wear their ID cards.',
+      'Must be completed via the online portal before the deadline. Late entries will not be accepted.',
       'Internet access will be provided',
-      'Time limit: 3 hours'
+      'Event will be started at 11:00 am'
     ],
     eventRules: [
-      'Multiple challenges of varying difficulty',
-      'Points based on challenge difficulty',
-      'Hints available with point deduction',
-      'First to capture all flags wins'
+      'Duration: The event will have three rounds:',
+      ' 	Round 1 - Quiz (1 Hour): Test participants general knowledge and technical skills through a timed quiz.',
+      '   Round 2 - Capture the Flag (1 Hour): Solve challenges related to hacking and problem-solving',
+      '   Round 3 (Optional) - Phishing Page or Task Development (1 Hour):Participants will create a phishing page simulation or complete another specified cybersecurity-related task.',
+      'Participants may use their own laptops, or college PCs will be provided.'
     ]
   },
   'TECH DARBAR': {
     generalRules: [
-      'Team size: 2-3 members',
-      'Open to all college students',
-      'Valid college ID required',
-      'Pre-registration mandatory'
+'      Participants must show proof of following all sponsor socials before entry.',
+      'Individual or team of 2 or 3 participation allowed',
+      'Participants must wear their ID cards.',
+      'Misbehavior with event management or other teams will lead to disqualification.',
+      'Event will be started at 11:00 am'
     ],
     eventRules: [
-      'Technical presentation round',
-      'Q&A session with judges',
-      'Innovation scoring criteria',
-      'Time limit: 15 minutes per team'
+      'A maximum of 3 members are allowed in a team. ',
+      'Participants points below threshold are disqualified from next round.',
+      'There will be 3 rounds:',
+      '1. Round 1 - elimination ',
+      '2. Round 2 - Rapid fire (answer as many questions in 5-10 mins)',
+      '3. Round 3 - Visual/Audio rounds ',
+      'Per Question 30 seconds',
+      'Buzzer must be pressed before answering question'
     ]
   },
   'TRADER TOURNAMENT': {
     generalRules: [
-      'Individual participation',
-      'Basic knowledge of trading required',
-      'Registration fee applicable',
-      'Limited slots available',
-      'All participants must adhere to ensure respectful and fair behaviour.',
+      'Participants must show proof of following all sponsor socials before entry.',
+      'Individualentry is mandatory.',
+      'Basic knowledge of trading required',      
+      'Participants must wear their ID cards.',
+      'Misbehavior with event management or other teams will lead to disqualification.',
       'Only First 20 Teams only will get Opportuinity in the Trader Tournament.'
     ],
     eventRules: [
@@ -219,32 +232,75 @@ const eventRules = {
   },
   'TRIVIA SHOWDOWN': {
     generalRules: [
-      'Team size: 2 members',
-      'Multiple rounds of quizzing',
-      'No electronic devices allowed',
-      'On-spot registration available'
+      'Participants must show proof of following all sponsor socials before entry.',
+      'Individual entry is mandatory. ',
+      'Participants must wear their ID cards.',
+      'Misbehavior with event management or other teams will lead to disqualification.',
+      'The buzzer will be installed on the participant’s mobile, which must be kept strictly on the table. The participant is not allowed to hold it in their hands.',
+      'Click the buzzer first will get the chance to answer.',
+      'Cheating of any kind is grounds for strict disqualification',
+      'All participants must adhere to ensure respectful and fair behaviour.',
+      'Only first 60 entries will be considered.'
+
     ],
     eventRules: [
-      'Round 1: General Tech',
-      'Round 2: Coding & Programming',
-      'Round 3: Current Tech Trends',
-      'Rapid fire final round'
+      'The event will consist of three rounds each having four categories.',
+      'Each round will have disqualifications on the basis of points gained by each team.',
+      'Volunteers decision will be the final decision regarding disqualification and point related decisions.',
+      'The event will start at 11:00 am',
     ]
   },
   'TECH SHARK': {
     generalRules: [
-      'Team size: 3-4 members',
-      'Pitch duration: 10 minutes',
-      'Prototype/MVP required',
-      'Pre-registration mandatory'
+      'Participants must show proof of following all sponsor socials before entry.',    
+      'Participants must wear their ID cards.',
+      'Misbehavior with event management or other teams will lead to disqualification.',
+      'Team Size: Individual or teams of up to 3 members.',
+      'Must be completed via the online portal before the deadline. Late entries will not be accepted.',
+      'Event will be started at 11:00 am',
+
     ],
     eventRules: [
       'Initial pitch presentation',
-      'Technical feasibility round',
-      'Business model evaluation',
-      'Final investor pitch'
+      'Pitch Duration: 4 minutes for presentation + 3-5 minutes for Q&A.',
+      'Medium: Use digital slides or videos or 3D model (projector and laptop provided).',
+      'Language Medium: Presentations can be in English, Hindi, or Marathi.',
+      'Originality: Only original ideas allowed.',
+      'Focus: Solutions must address a specific social issue.',
+      'Judging Criteria: Creativity, innovation, and impact.',
+      'Feasibility: Real-world applicability.',
+      'Prizes: First, Second, and Third place prizes.'
     ]
-  }
+  },
+  'SQUID GAME': {
+    generalRules: [
+      'Individual entry is mandatory. ',
+      'Participants must show proof of following all sponsor socials before entry.',    
+      'Participants must wear their ID cards.',
+      'Misbehavior with event management or other teams will lead to disqualification.',
+      'Must be completed via the online portal before the deadline. Late entries will not be accepted.',
+      'Event will be started at 11:00 am'
+
+    ],
+    eventRules: [
+      'Event consists of 4 rounds:',
+      '1. Round 1 - Memory Game',
+      '2. Round 2 - 2 Moves Checkmate',
+      '3. Round 3 - Tower Builder',
+      '4. Round 4 - Jenga',
+      'Teams must complete all challenges to qualify for prizes'
+    ]
+  },
+};
+
+const eventRegistrationLinks = {
+  'BGMI': 'https://forms.gle/66vcrkpBY3YnGdB68',
+  'CAPTURE THE FLAG': 'https://forms.gle/U6J3ZnP3qbw5G17s7',
+  'TECH SHARK': 'https://forms.gle/VHpMX86MeNCeMidn6',
+  'TRADER TOURNAMENT': 'https://forms.gle/6JHwsdypsXaesEZA7',
+  'TECH DARBAR': 'https://forms.gle/oWef5Q97A4EEFAAa6',
+  'TRIVIA SHOWDOWN': 'https://forms.gle/8RQEUX1sD7jQFrk36',
+  // 'SQUID GAME': 'https://forms.gle/HsHEGqa1NttPiePv6'
 };
 
 const EventPage = () => {
@@ -267,17 +323,12 @@ const EventPage = () => {
     .join(' ');
 
   const rules = eventRules[formattedEventName];
+  const registrationLink = eventRegistrationLinks[formattedEventName];
 
   if (!rules) {
     return (
       <EventContainer>
-        <BackButton
-          onClick={handleBack}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          ← Back to Events
-        </BackButton>
+        <BackButton onClick={handleBack}>← Back to Events</BackButton>
         <EventHeader>
           <EventTitle>Event Not Found</EventTitle>
         </EventHeader>
@@ -287,14 +338,7 @@ const EventPage = () => {
 
   return (
     <EventContainer>
-      <BackButton
-        onClick={handleBack}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        ← Back to Events
-      </BackButton>
-      
+      <BackButton onClick={handleBack}>← Back to Events</BackButton>
       <EventHeader>
         <EventTitle
           initial={{ opacity: 0, y: -20 }}
@@ -338,15 +382,20 @@ const EventPage = () => {
         </RulesList>
       </Section>
 
-      <RegisterButton
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        Register Now
-      </RegisterButton>
+      {registrationLink && (
+        <RegisterButton 
+          href={registrationLink} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          Register Now
+        </RegisterButton>
+      )}
     </EventContainer>
   );
 };

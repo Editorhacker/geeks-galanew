@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Philosopher:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Philosopher', serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #0a0a0a;
+  color: #e2c35d;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 30, 0.95) 90%
+  );
+  overflow-x: hidden;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('./assets/background.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+  animation: subtlePulse 15s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .App::before {
+    background-attachment: scroll;
+  }
+}
+
+.mysterious-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(226, 195, 93, 0.2) 0%,
+    rgba(226, 195, 93, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .mysterious-glow {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (hover: none) {
+  .mysterious-glow {
+    display: none;
+  }
+}
+
+@keyframes mysteriousFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes reveal {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    opacity: 0;
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(226, 195, 93, 0.3),
+                0 0 20px rgba(226, 195, 93, 0.2),
+                0 0 30px rgba(226, 195, 93, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(226, 195, 93, 0.4),
+                0 0 25px rgba(226, 195, 93, 0.3),
+                0 0 35px rgba(226, 195, 93, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(226, 195, 93, 0.3),
+                0 0 20px rgba(226, 195, 93, 0.2),
+                0 0 30px rgba(226, 195, 93, 0.1);
+  }
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.mysterious-text {
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: 0 0 10px rgba(226, 195, 93, 0.5);
+  letter-spacing: 3px;
+}
+
+/* Improve touch interactions on mobile */
+@media (max-width: 768px) {
+  * {
+    touch-action: manipulation;
+  }
+  
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+  }
+}
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2c35d;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a43d;
+}

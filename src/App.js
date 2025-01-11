@@ -5,9 +5,12 @@ import { Tilt } from 'react-tilt';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import logo from './assets/logo.png';
 import bgmiImage from './assets/bgmi.jpg';
-import ctfImage from './assets/capture_the_flag.jpg';
+import ctfImage from './assets/capture_the_flag.jpeg';
 import quizImage from './assets/quiz.jpg';
+import triviaImage from './assets/trivia.jpg';
 import tradingImage from './assets/trading_tournament.jpg';
+import techSharkImage from './assets/tech_shark.png';
+import squidGameImage from './assets/squid_game.jpg';
 import { useInView } from 'react-intersection-observer';
 import EventPage from './pages/EventPage';
 import './App.css';
@@ -23,7 +26,7 @@ const events = [
   },
   { 
     name: 'TECH DARBAR',
-    src: quizImage  
+    src: quizImage
   },
   { 
     name: 'TRADER TOURNAMENT',
@@ -31,11 +34,15 @@ const events = [
   },
   { 
     name: 'TRIVIA SHOWDOWN',
-    src: quizImage
+    src: triviaImage
   },
   { 
     name: 'TECH SHARK',
-    src: quizImage  
+    src: techSharkImage
+  },
+  {
+    name: 'SQUID GAME',
+    src: squidGameImage
   }
 ];
 
@@ -46,8 +53,6 @@ const Header = styled(motion.header)`
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 3;
-
   &::before {
     content: '';
     position: absolute;
@@ -55,13 +60,8 @@ const Header = styled(motion.header)`
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
     z-index: -1;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 20px;
-    text-align: center;
   }
 `;
 
@@ -73,12 +73,6 @@ const Logo = styled(motion.img)`
   border: 3px solid #e2c35d;
   animation: glowPulse 3s infinite;
   filter: drop-shadow(0 0 10px rgba(226, 195, 93, 0.3));
-
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 150px;
-    margin-top: 2rem;
-  }
 `;
 
 const Title = styled(motion.h1)`
@@ -86,9 +80,9 @@ const Title = styled(motion.h1)`
   color: #e2c35d;
   text-align: center;
   font-family: 'Cinzel Decorative', cursive;
-  margin-bottom: 1rem;
   text-shadow: 0 0 15px rgba(226, 195, 93, 0.7);
   letter-spacing: 12px;
+  margin-bottom: 1rem;
   position: relative;
   
   &::before, &::after {
@@ -109,16 +103,6 @@ const Title = styled(motion.h1)`
     right: 0;
     transform: translateX(-20%);
   }
-
-  @media (max-width: 768px) {
-    font-size: 3rem;
-    letter-spacing: 6px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-  }
 `;
 
 const Subtitle = styled(motion.p)`
@@ -130,22 +114,21 @@ const Subtitle = styled(motion.p)`
   margin-bottom: 3rem;
   letter-spacing: 4px;
   text-shadow: 0 0 8px rgba(226, 195, 93, 0.3);
-
-  @media (max-width: 768px) {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    margin: 1.5rem 0;
-  }
 `;
 
 const EventsSection = styled.section`
   padding: 8rem 2rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.7);
   position: relative;
-  z-index: 3;
   
-  @media (max-width: 768px) {
-    padding: 4rem 1rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
   }
 `;
 
@@ -156,12 +139,6 @@ const EventsGrid = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 0 1rem;
-  }
 `;
 
 const EventCard = styled(motion.div)`
@@ -175,14 +152,27 @@ const EventCard = styled(motion.div)`
   height: 100%;
   position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, rgba(226, 195, 93, 0.2), transparent 50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
   &:hover {
     box-shadow: 0 0 30px rgba(226, 195, 93, 0.4);
     transform: translateY(-5px);
-  }
-
-  @media (max-width: 768px) {
-    &:active {
-      transform: scale(0.98);
+    
+    &::before {
+      opacity: 1;
     }
   }
 `;
@@ -203,8 +193,8 @@ const EventImage = styled.img`
 `;
 
 const EventTitle = styled.h3`
-  text-align: center;
   padding: 1.5rem;
+  text-align: center;
   font-size: 1.8rem;
   margin: 0;
   color: #e2c35d;
@@ -222,12 +212,6 @@ const EventTitle = styled.h3`
     width: 50%;
     height: 1px;
     background: linear-gradient(to right, transparent, #e2c35d, transparent);
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.4rem;
-    padding: 1rem;
-    letter-spacing: 2px;
   }
 `;
 
@@ -267,7 +251,7 @@ const HomePage = () => {
             stiffness: 100
           }}
         >
-          GEEK GALA
+          GEEKS GALA
         </Title>
         <Subtitle
           initial={{ opacity: 0 }}

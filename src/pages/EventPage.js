@@ -300,7 +300,7 @@ const eventRegistrationLinks = {
   'TRADER TOURNAMENT': 'https://forms.gle/6JHwsdypsXaesEZA7',
   'TECH DARBAR': 'https://forms.gle/oWef5Q97A4EEFAAa6',
   'TRIVIA SHOWDOWN': 'https://forms.gle/8RQEUX1sD7jQFrk36',
-  // 'SQUID GAME': 'https://forms.gle/HsHEGqa1NttPiePv6'
+  'SQUID GAME': 'https://forms.gle/HsHEGqa1NttPiePv6'
 };
 
 const EventPage = () => {

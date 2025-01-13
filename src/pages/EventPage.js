@@ -156,7 +156,7 @@ const eventRules = {
   'BGMI': {
     generalRules: [
       'Participants must show proof of following all sponsor socials before entry.',
-      'Entry fee of Rs.80 /- per Team.',
+      'Entry fee of Rs.100 /- per Team.',
       'Each team must have 4 playing members (1 substitute optional). Only playing members are allowed in the venue.',
       'Participants must wear their ID cards.',
       'Teams arriving late will be disqualified.',

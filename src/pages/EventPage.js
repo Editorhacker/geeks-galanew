@@ -213,7 +213,6 @@ const eventRules = {
       'Basic knowledge of trading required',      
       'Participants must wear their ID cards.',
       'Misbehavior with event management or other teams will lead to disqualification.',
-      'Only First 20 Teams only will get Opportuinity in the Trader Tournament.'
     ],
     eventRules: [
       'The event will start at 11:00 am',
@@ -255,7 +254,7 @@ const eventRules = {
       'Participants must show proof of following all sponsor socials before entry.',    
       'Participants must wear their ID cards.',
       'Misbehavior with event management or other teams will lead to disqualification.',
-      'Team Size: Individual or teams of up to 3 members.',
+      'Team Size: Individual or teams of up to 2 members.',
       'Must be completed via the online portal before the deadline. Late entries will not be accepted.',
       'Event will be started at 11:00 am',
 
